@@ -1,0 +1,38 @@
+{
+  "name": "redis-cache-sample",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "author": {
+    "name": "Marco Glaser (SAP Deutschland SE & Co. KG",
+    "email": "marco.glaser@sap.com"
+  },
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/xssec": "^3",
+    "express": "^4",
+    "redis": "^4.6.15"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^7",
+    "@sap/eslint-plugin-cds": "^3",
+    "eslint": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "redis-cache-sample-redis": {
+        "kind": "redis-cache",
+        "impl": "srv/lib/redis/redis.js"
+      },
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  }
+}
